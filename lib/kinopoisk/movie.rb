@@ -160,6 +160,16 @@ module Kinopoisk
       search_by_text 'слоган'
     end
 
+    # Returns a string containing minimal age
+    def minimal_age
+      search_by_text('возраст').strip
+    end
+
+    # Returns a string containing duration of the film
+    def duration
+      search_by_text('время').strip
+    end
+
     private
 
     def doc

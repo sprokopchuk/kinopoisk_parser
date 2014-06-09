@@ -21,7 +21,7 @@ module Kinopoisk
 
     # Returns an array of strings containing actor names
     def actors
-      doc.search('td.actor_list div a').map{|n| n.text.gsub("\n",'').strip}
+      doc.search('#actorList ul li a').map{|n| n.text.gsub("\n",'').strip}
         .delete_if{|text| text=='...'}
     end
 
@@ -72,7 +72,7 @@ module Kinopoisk
 
     # Returns a url to a small sized poster
     def poster
-      doc.search("img[itemprop='image']").first.attr 'src'
+      doc.search(".film-img-box img[itemprop='image']").first.attr 'src'
     end
 
     # Returns a string containing world premiere date
@@ -92,7 +92,7 @@ module Kinopoisk
 
     # Returns a url to a big sized poster
     def poster_big
-      poster.gsub 'film', 'film_big'
+      poster.gsub 'iphone/iphone360_', 'big/'
     end
 
     # Returns an integer length of the movie in minutes
@@ -158,6 +158,16 @@ module Kinopoisk
     # Returns a string containing movie slogan
     def slogan
       search_by_text 'слоган'
+    end
+
+    # Returns a string containing minimal age
+    def minimal_age
+      search_by_text('возраст').strip
+    end
+
+    # Returns a string containing duration of the film
+    def duration
+      search_by_text('время').strip
     end
 
     private

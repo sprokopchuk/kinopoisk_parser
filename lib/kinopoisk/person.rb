@@ -18,7 +18,7 @@ module Kinopoisk
 
     # Returns a url to a poster
     def poster
-      doc.search('img.people_thumbnail').first.attr 'src'
+      doc.search(".film-img-box img").first.attr 'src'
     end
 
     # Returns a string containing name in russian
@@ -28,7 +28,7 @@ module Kinopoisk
 
     # Returns a string containing name in english
     def name_en
-      doc.search("//tr[./td/h1[@class='moviename-big']]/following-sibling::tr//span").text
+      doc.search("#headerPeople span[itemprop='alternativeHeadline']").text.strip
     end
 
     # Returns a string containing partner's name
@@ -63,17 +63,17 @@ module Kinopoisk
 
     # Returns an array of strings containing best movie titles
     def best_movies
-      doc.search('td.actor_list a').map(&:text)
+      doc.search('#BestFilmList a').map(&:text)
     end
 
     # Returns a string containing year of first movie
     def first_movie
-      search_by_text 'первый фильм'
+      doc.search("a[title='Первый фильм']").text
     end
 
     # Returns a string containing year of last movie
     def last_movie
-      search_by_text 'последний фильм'
+      doc.search("a[title='Последний фильм']").text
     end
 
     # Returns a string containing height

@@ -32,12 +32,12 @@ module Kinopoisk
 
     # Returns an integer imdb rating vote count
     def imdb_rating_count
-      doc.search('div.block_2 div:last').text.gsub(/[ ()]/, '').to_i
+      doc.search('div.block_2 div:eq(2)').text.gsub(/.*\(/, '').gsub(/[ ()]/, '').to_i
     end
 
     # Returns a float imdb rating
     def imdb_rating
-      doc.search('div.block_2 div:last').text[/\d.\d\d/].to_f
+      doc.search('div.block_2 div:eq(2)').text[/\d.\d\d/].to_f
     end
 
     # Returns an integer release year

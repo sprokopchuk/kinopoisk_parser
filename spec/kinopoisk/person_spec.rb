@@ -17,8 +17,8 @@ describe Kinopoisk::Person, vcr: { cassette_name: 'people' } do
   it { person.name.should eq('Декстер Флетчер') }
   it { person.birthplace.should eq('Лондон') }
   it { person.first_movie.should eq('1976') }
-  it { person.last_movie.should eq('2014') }
+  it { person.last_movie.should be_a(String) }
   it { person.birthdate.should be_a(Date) }
-  it { person.total_movies.should eq(93) }
+  it { person.total_movies.should be_a(Integer) }
   it { person.height.should eq('1.68 м') }
 end

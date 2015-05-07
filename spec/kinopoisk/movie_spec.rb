@@ -6,7 +6,7 @@ describe Kinopoisk::Movie, vcr: { cassette_name: 'movies' } do
   let(:avatar) { Kinopoisk::Movie.new 251733 }
 
   it { dexter.url.should eq('http://www.kinopoisk.ru/film/277537/') }
-  it { dexter.title.should eq('Правосудие Декстера') }
+  it { dexter.title.should eq('Декстер') }
   it { dexter.title_en.should eq('Dexter') }
 
   it { dexter.poster.should eq('http://st.kp.yandex.net/images/film_iphone/iphone360_277537.jpg') }
@@ -21,7 +21,7 @@ describe Kinopoisk::Movie, vcr: { cassette_name: 'movies' } do
   it { dexter.operators.should eq(['Ромео Тироне','Джеф Джёр','Мартин Дж. Лэйтон']) }
   it { dexter.composers.should eq(['Дэниэл Лихт']) }
   it { dexter.art_directors.should eq(['Джессика Кендер','Энтони Коули','Эрик Уейлер']) }
-  it { dexter.editors.should eq(['Луис Ф. Циоффи','Стюарт Шилл','Кит Хендерсон']) }
+  it { dexter.editors.should eq(['Луис Циоффи', 'Стюарт Шилл', 'Кит Хендерсон']) }
   it { dexter.genres.should eq(['триллер','драма','криминал', 'детектив']) }
   it { dexter.actors.should include('Майкл С. Холл', 'Дженнифер Карпентер') }
   it { dexter.description.should match('Декстер Морган.') }

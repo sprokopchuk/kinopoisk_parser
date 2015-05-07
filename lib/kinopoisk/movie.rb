@@ -112,7 +112,7 @@ module Kinopoisk
 
     # Returns an integer kinopoisk rating vote count
     def rating_count
-      search_by_itemprop('ratingCount').to_i
+      search_by_itemprop('ratingCount').gsub(' ', '').to_i
     end
 
     # Returns an array of strings containing director names

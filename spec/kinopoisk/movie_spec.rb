@@ -39,6 +39,7 @@ describe Kinopoisk::Movie, vcr: { cassette_name: 'movies' } do
   it { avatar.box_office_us.should match('[$\d]') }
   it { avatar.budget.should eq('$237 000 000') }
   it { avatar.length.should eq(162) }
+  it { avatar.trailer.should eq('http://kp.cdn.yandex.net/251733/kinopoisk.ru-Avatar-42260.mp4') }
 
   it 'should make only one request' do
     dexter.title

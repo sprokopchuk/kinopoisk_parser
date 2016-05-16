@@ -170,10 +170,19 @@ module Kinopoisk
       search_by_text('время').strip
     end
 
+    def trailer
+      "http://kp.cdn.yandex.net/" + get_trailer_link
+    end
+
     private
 
     def doc
       @doc ||= Kinopoisk.parse url
+    end
+
+
+    def get_trailer_link
+      doc.search("//script[contains(text(), 'GetTrailerPreview')]").text().scan(/\"trailerFile\"\:\s+\"(.*?)\"/).flatten.first
     end
 
     # Kinopoisk has defined first=yes param to redirect to first result

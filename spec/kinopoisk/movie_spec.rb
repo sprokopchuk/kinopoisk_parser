@@ -25,8 +25,8 @@ describe Kinopoisk::Movie, vcr: { cassette_name: 'movies' } do
   it { dexter.genres.should eq(['триллер','драма','криминал', 'детектив']) }
   it { dexter.actors.should include('Майкл С. Холл', 'Дженнифер Карпентер') }
   it { dexter.description.should match('Декстер Морган.') }
-  it { dexter.premiere_world.should eq('1 октября 2006') }
-  it { dexter.premiere_ru.should eq('3 ноября 2008') }
+  it { dexter.premiere_world.should eq('20061001') }
+  it { dexter.premiere_ru.should eq('20081103') }
   it { dexter.minimal_age.should eq('зрителям, достигшим 18 лет') }
   it { dexter.duration.should eq ('55 мин.') }
   it { dexter.imdb_rating_count.should be_a(Integer) }

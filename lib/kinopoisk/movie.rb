@@ -82,7 +82,7 @@ module Kinopoisk
 
     # Returns a string containing Russian premiere date
     def premiere_ru
-      doc.search('td#div_rus_prem_td2 .prem_ical').first.attr 'data-date-premier-start-link'
+      doc.search('td#div_rus_prem_td2 .prem_ical').first.try(:attr, 'data-date-premier-start-link')
     end
 
     # Returns a float kinopoisk rating

@@ -5,7 +5,7 @@ require 'kinopoisk/search'
 require 'kinopoisk/person'
 
 module Kinopoisk
-  SEARCH_URL = 'http://www.kinopoisk.ru/index.php?kp_query='
+  SEARCH_URL = 'https://www.kinopoisk.ru/index.php?kp_query='
 
   NotFound = Class.new StandardError
   Denied   = Class.new StandardError

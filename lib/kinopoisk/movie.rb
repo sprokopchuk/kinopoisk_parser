@@ -15,7 +15,7 @@ module Kinopoisk
     #
     def initialize(input, title=nil)
       @id    = input.is_a?(String) ? find_by_title(input) : input
-      @url   = "http://www.kinopoisk.ru/film/#{id}/"
+      @url   = "https://www.kinopoisk.ru/film/#{id}/"
       @title = title
     end
 

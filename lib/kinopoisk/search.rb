@@ -10,7 +10,7 @@ module Kinopoisk
 
     # Returns an array containing Kinopoisk::Movie instances
     def movies
-      find_nodes('film').map{|n| new_movie n }
+      find_nodes('film').map{|n| new_movie n.parent }
     end
 
     # Returns an array containing Kinopoisk::Person instances
@@ -33,7 +33,7 @@ module Kinopoisk
     end
 
     def new_movie(node)
-      Movie.new parse_id(node, 'film'), node.text.gsub(' (сериал)', '')
+      Movie.new parse_id(node.children.first, 'film'), node.children.first.text.gsub(' (сериал)', ''), node.children.last.text
     end
 
     def new_person(node)

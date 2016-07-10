@@ -1,7 +1,7 @@
 #coding: UTF-8
 module Kinopoisk
   class Movie
-    attr_accessor :id, :url, :title
+    attr_accessor :id, :url, :title, :search_year
 
     # New instance can be initialized with id(integer) or title(string). Second
     # argument may also receive a string title to make it easier to
@@ -13,10 +13,11 @@ module Kinopoisk
     # Initializing by title would send a search request and return first match.
     # Movie page request is made once and on the first access to a remote data.
     #
-    def initialize(input, title=nil)
+    def initialize(input, title = nil, search_year = nil)
       @id    = input.is_a?(String) ? find_by_title(input) : input
       @url   = "https://www.kinopoisk.ru/film/#{id}/"
       @title = title
+      @search_year = search_year
     end
 
     # Returns an array of strings containing actor names

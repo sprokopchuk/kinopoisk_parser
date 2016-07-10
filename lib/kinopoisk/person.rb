@@ -66,6 +66,11 @@ module Kinopoisk
       doc.search('#BestFilmList a').map(&:text)
     end
 
+    # Returns an array of strings containing all movie titles
+    def all_movies
+      doc.search('.personPageItems .name a').map(&:text)
+    end
+
     # Returns a string containing year of first movie
     def first_movie
       doc.search("a[title='Первый фильм']").text
